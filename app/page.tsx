@@ -1,3 +1,8 @@
+'use client';
+
+import ModalForm from "@/components/ui/ModalForm";
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -27,6 +32,10 @@ import {
 } from "lucide-react"
 
 export default function CareerCreatorsLanding() {
+
+const [showModal, setShowModal] = useState(false);
+
+
   const domains = [
     {
       name: "Web Development",
@@ -215,7 +224,7 @@ export default function CareerCreatorsLanding() {
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Land Internships in Just <span className="text-orange-500">4 Weeks</span>
                 <br />
-                <span className="text-2xl md:text-4xl">Without Clueless Theory or Fake Promises</span>
+                <span className="text-2xl md:text-4xl">Learn What Matters — No Fluff, No Filler</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
                 Mentor-led training for Tier 2/3/4 students. Get certified, get skilled, and get{" "}
@@ -224,20 +233,27 @@ export default function CareerCreatorsLanding() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg"
-              >
-                📝 Register Now
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto border-green-500 text-green-400 hover:bg-green-50 hover:text-green-600 font-semibold px-8 py-4 text-lg bg-transparent"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Talk to Our Team
-              </Button>
+              
+
+<Button
+  onClick={() => setShowModal(true)}
+  className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg"
+>
+  📝 Register Now
+</Button>
+ <ModalForm isOpen={showModal} onClose={() => setShowModal(false)} />
+
+<a href="tel:+919876543210">
+  <Button
+    size="lg"
+    variant="outline"
+    className="w-full sm:w-auto border-green-500 text-green-400 hover:bg-green-50 hover:text-green-600 font-semibold px-8 py-4 text-lg bg-transparent"
+  >
+    <Phone className="w-5 h-5 mr-2" />
+    Talk to Our Team
+  </Button>
+</a>
+
             </div>
 
             <div className="pt-8">
@@ -305,8 +321,8 @@ export default function CareerCreatorsLanding() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4">
-              See All Domains & Register
+            <Button onClick={() => setShowModal(true)} size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4">
+              Register
             </Button>
           </div>
         </div>
@@ -399,9 +415,9 @@ export default function CareerCreatorsLanding() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4">
+            <a href="https://careercreators.online"><Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4">
               Join the Movement
-            </Button>
+            </Button></a>
           </div>
         </div>
       </section>
@@ -474,11 +490,13 @@ export default function CareerCreatorsLanding() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
               <Button
+              onClick={() => setShowModal(true)}
                 size="lg"
                 className="w-full sm:w-auto bg-white text-orange-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
               >
                 📝 Register Now
               </Button>
+              <a href="https://wa.me/918296193469" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 variant="outline"
@@ -487,6 +505,7 @@ export default function CareerCreatorsLanding() {
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Talk to Us
               </Button>
+              </a>
             </div>
 
             <p className="text-sm text-orange-100">
@@ -528,14 +547,20 @@ export default function CareerCreatorsLanding() {
             </p>
 
             <div className="flex justify-center space-x-6">
+              <a href="https://wa.me/918296193469?text=Hi%2C%20I%20am%20interested%20in%20Career%20Creators%20training" target="_blank" rel="noopener noreferrer"
+>
               <Button variant="ghost" className="text-white hover:text-orange-400">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 WhatsApp Support
               </Button>
-              <Button variant="ghost" className="text-white hover:text-orange-400">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Us
-              </Button>
+              </a>
+              <a href="tel:+918296193469">
+  <Button variant="ghost" className="text-white hover:text-orange-400">
+    <Phone className="w-5 h-5 mr-2" />
+    Call Us
+  </Button>
+</a>
+
             </div>
 
             <div className="border-t border-gray-700 pt-6">
